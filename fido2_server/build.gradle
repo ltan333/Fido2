@@ -1,0 +1,82 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.3'
+	id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.thd.fido2.fido2_server'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '21'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-cache'
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis:3.2.3'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.mariadb.jdbc:mariadb-java-client:3.3.3'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-logging'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	
+	implementation 'junit:junit:4.12'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'com.h2database:h2'
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	implementation 'org.bouncycastle:bcprov-jdk15on:1.70'
+	implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+	implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
+	implementation 'com.squareup.retrofit2:converter-jackson:2.9.0'
+	implementation 'com.auth0:java-jwt:4.4.0'
+	implementation 'javax.annotation:javax.annotation-api:1.3.2'
+//	implementation 'net.i2p:i2p:2.4.0'
+	implementation 'net.i2p.crypto:eddsa:0.3.0'
+	testImplementation 'com.github.kstyrc:embedded-redis:0.6'
+	implementation 'redis.clients:jedis:5.1.2'
+//	implementation 'it.ozimov:embedded-redis:0.7.3'
+	implementation('com.github.kstyrc:embedded-redis:0.6')
+	implementation 'io.springfox:springfox-swagger2:2.10.5'
+	implementation 'io.springfox:springfox-swagger-ui:2.10.5'
+	implementation 'com.google.guava:guava:30.1-jre'
+	implementation 'javax.persistence:javax.persistence-api:2.2'
+	implementation 'commons-codec:commons-codec:1.15'
+
+
+
+	//Common
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.1'
+	implementation 'com.fasterxml.jackson.core:jackson-core:2.16.1'
+	implementation 'com.fasterxml.jackson.core:jackson-annotations:2.16.1'
+	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:2.16.1'
+
+	// The spring-boot-starter-validation on server module and the version it depends on must match
+	implementation 'org.hibernate.validator:hibernate-validator:8.0.1.Final'
+	implementation 'javax.activation:activation:1.1.1'
+	implementation 'javax.validation:validation-api:2.0.1.Final'
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+	testImplementation 'org.assertj:assertj-core:3.21.0'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

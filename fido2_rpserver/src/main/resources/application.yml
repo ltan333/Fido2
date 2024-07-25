@@ -1,0 +1,55 @@
+spring:
+  profiles:
+    active: local
+  config:
+    use-legacy-processing: true
+  web:
+    resources:
+      chain:
+        cache: false
+server:
+  port: 8088
+logbook:
+  write:
+    level: INFO
+  obfuscate:
+    headers:
+      - host
+      - origin
+      - referer
+      - user-agent
+      - accept-encoding
+  exclude:
+    - /health
+fido2-server:
+  scheme: https
+  host: toucan-special-smoothly.ngrok-free.app
+#  host: lmaolmao.lol
+  port:
+  endpoint:
+    get-reg-challenge: /fido2/reg/challenge
+    get-auth-challenge: /fido2/auth/challenge
+    send-reg-response: /fido2/reg/response
+    send-auth-response: /fido2/auth/response
+    get-delete-credentials: /fido2/credentials
+
+#spring:
+#  profiles:
+#    active: local
+
+fido2:
+  rp:
+    id: localhost
+    origin: localhost
+    port: 8088
+#
+conformance:
+  url: https://localhost:8080
+logging:
+  level:
+    org.springframework.web: DEBUG
+    org.hibernate: DEBUG
+    com.thd.com.thd.fido2: DEBUG
+
+
+
